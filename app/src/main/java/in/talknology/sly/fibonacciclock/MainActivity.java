@@ -149,7 +149,9 @@ public class MainActivity extends AppCompatActivity {
         Calendar c = Calendar.getInstance();                                                        // new object of type Calendar
         hour = c.get(Calendar.HOUR);                                                                // get hour (in 24-HR format) in int
         min = c.get(Calendar.MINUTE);                                                               // get minute in int
-
+        
+        if(hour==0)
+            hour=12;
         while (min % 5 != 0)                                                                        // checking for nearest lowest multiple of 5 in min. Ex: 54=50,59=55,etc.
         {
             min--;
