@@ -1,11 +1,26 @@
+/*
+This activity is the beginning of the
+applications's life. Performs first run,
+auto-update, manual run & leverages a
+switch to dock mode.
+
+-Shubham Kumar
+www.github.com/shubhamk008/fibonacciclock
+www.talknology.in
+*/
+
 package in.talknology.sly.fibonacciclock;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;                                                                          // for current time
@@ -14,7 +29,7 @@ import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    // Global Declrations
     int hour = -1, min = -1;                                                                        // initialise hour and min to -1; both invalid
     static int[] factor = {5, 3, 2, 1, 1};                                                          // initialise factors to 5,3,2,1 & 1. Fixed throughout program.
     static int[] hourFlag = {0, 0, 0, 0, 0};                                                        // initialise hour flag to zeroes.
@@ -76,9 +91,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ////////////////////////////////////////////////////////////////////////////////////////////
-        //Auto time resetter at every 5th minute, ex: app start at 10:03-->refresh at 10:05, 10:10, etc.
 
+        // ---------------- Auto time resetter at every 5th minute, ex: app start at 10:03-->refresh at 10:05, 10:10, etc.
 
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
@@ -92,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 if (min % 5 == 0 && sec == 0) {
 
                     hour = c.get(Calendar.HOUR);
+                    if (hour == 0) hour = 12;
                     min = c.get(Calendar.MINUTE);
                     while (min % 5 != 0)                                                            // checking for nearest lowest multiple of 5 in min. Ex: 54=50,59=55,etc.
                     {
@@ -115,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     hour = c.get(Calendar.HOUR);
+                    if (hour == 0) hour = 12;
                     min = c.get(Calendar.MINUTE);
                     while (min % 5 != 0)                                                            // checking for nearest lowest multiple of 5 in min. Ex: 54=50,59=55,etc.
                     {
@@ -140,8 +156,6 @@ public class MainActivity extends AppCompatActivity {
 
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
 
-        ////////////////////////////////////////////////////////////////////////////////////////////
-
     }
 
 
@@ -149,14 +163,14 @@ public class MainActivity extends AppCompatActivity {
         Calendar c = Calendar.getInstance();                                                        // new object of type Calendar
         hour = c.get(Calendar.HOUR);                                                                // get hour (in 24-HR format) in int
         min = c.get(Calendar.MINUTE);                                                               // get minute in int
-        
-        if(hour==0)
-            hour=12;
+
+        if (hour == 0)
+            hour = 12;
         while (min % 5 != 0)                                                                        // checking for nearest lowest multiple of 5 in min. Ex: 54=50,59=55,etc.
         {
             min--;
         }
-        min = min / 5;
+        min = min / 5;                                                                              // min=min/5 for further computation
 
         calcColour();                                                                               // set hourFlag and minFlag arrays so that colour can be changed appropriately by imageChange method
         imageChange();                                                                              // change image to suitable colour
@@ -173,15 +187,9 @@ public class MainActivity extends AppCompatActivity {
         {
             min--;
         }
-        min = min / 5;
-
-        //Toast.makeText(getApplicationContext(),"Time is "+hour+":"+min,Toast.LENGTH_SHORT).show();    // display the text that you entered in edit text, with hour and min modified
+        min = min / 5;                                                                              // min=min/5 for further computation
 
         calcColour();                                                                               // set hourFlag and minFlag arrays so that colour can be changed appropriately by imageChange method
-
-        //Toast.makeText(getApplicationContext(), "hour flags:"+hourFlag[0]+hourFlag[1]+hourFlag[2]+hourFlag[3]+hourFlag[4], Toast.LENGTH_SHORT).show();    // Toasts all hourFlag elements
-        //Toast.makeText(getApplicationContext(), "min flags:"+minFlag[0]+minFlag[1]+minFlag[2]+minFlag[3]+minFlag[4], Toast.LENGTH_SHORT).show();    // Toasts all minFlag elements
-
         imageChange();                                                                              // change image to suitable colour
         resetTime();                                                                                // reset time variables hour & min to -1 to avoid unwanted scenarios, sets hourFlag and minFlag arrays to zeroes
     }
@@ -334,4 +342,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {                                                 // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);                                          // we add dock view button from res > menu > menu_main.xml
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {                                           // from inflater, check which option is selected
+        int count;
+        switch (item.getItemId()) {                                                                 // check all action bar item IDs, whichever clicked
+            case R.id.dockView:                                                                     // if dock view button is selected
+                Intent dockIntent = new Intent(this, dockView.class);                               // Intent is from this activity to dock view activity
+                startActivity(dockIntent);                                                          // start dock view activity
+        }
+        return (super.onOptionsItemSelected(item));                                                 // returns boolean for selection of action bar button
+    }
 }
