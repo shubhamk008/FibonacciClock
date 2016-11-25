@@ -22,11 +22,6 @@
             android:name=".dockView"
             android:screenOrientation="portrait">
             //Locks the screen to potrait mode only
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- This service is only used on devices with API v17+ -->
     </application>
