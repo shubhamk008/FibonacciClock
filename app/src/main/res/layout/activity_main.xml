@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView8"
             android:layout_centerHorizontal="true"
-            android:text="Green = Minute x 5 " />
+            android:text="Green = Minute x 5" />
 
         <TextView
             android:id="@+id/textView12"
@@ -160,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView11"
             android:layout_centerHorizontal="true"
-            android:text="Blue = Add for both hour and minute " />
+            android:text="Blue = Add for both (Hour) & (Minute x 5)" />
 
         <TextView
             android:id="@+id/textView13"
@@ -168,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView12"
             android:layout_centerHorizontal="true"
-            android:text="Transparent = Ignored" />
+            android:text="Empty = Ignored" />
 
     </RelativeLayout>
 
