@@ -12,6 +12,6 @@ Download the Android App [here](https://github.com/shubhamk008/FibonacciClock/ra
 ![Alt text](https://github.com/shubhamk008/FibonacciClock/raw/master/Screenshots/Dock.png "Dock View")
 
 ###License:scroll:: MIT License (MIT)
-Copyright (c) 2016 Shubham Kumar
+Copyright (c) 2017 Shubham Kumar
 
 For more licensing details, check [here](https://github.com/shubhamk008/FibonacciClock/blob/master/License).
