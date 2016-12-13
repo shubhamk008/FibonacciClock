@@ -5,7 +5,7 @@ auto-update, manual run & leverages a
 switch to dock mode.
 
 -Fibonacci Clock
-MIT License
+Under MIT License
 www.github.com/shubhamk008/fibonacciclock
 
 -Developed by Shubham Kumar
