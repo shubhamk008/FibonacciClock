@@ -6,8 +6,12 @@ bar enables this method from MainActivity.
 This preview goes only show a fibonacci clock
 in full screen to use as a Dock.
 
--Shubham Kumar
+-Fibonacci Clock
+Under MIT License
 www.github.com/shubhamk008/fibonacciclock
+
+-Developed by Shubham Kumar
+www.github.com/shubhamk008
 www.talknology.in
 
 */
