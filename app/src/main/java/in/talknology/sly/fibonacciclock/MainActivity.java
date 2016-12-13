@@ -4,8 +4,11 @@ applications's life. Performs first run,
 auto-update, manual run & leverages a
 switch to dock mode.
 
--Shubham Kumar
+-Fibonacci Clock
 www.github.com/shubhamk008/fibonacciclock
+
+-Developed by Shubham Kumar
+www.github.com/shubhamk008
 www.talknology.in
 */
 
