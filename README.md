@@ -1,6 +1,7 @@
 # Fibonacci Clock :clock2:
 
-Download the Android App [here](https://github.com/shubhamk008/FibonacciClock/raw/master/app/Fibonacci%20Clock.apk) [APK].</br>Documentation will be coming soon at www.talknology.in. Once completed, it shall be referenced here.
+Download the [Android App [APK]](https://github.com/shubhamk008/FibonacciClock/raw/master/app/Fibonacci%20Clock.apk) to get started.
+</br>User documentation is available at [Talknology](http://talknology.in/2017/02/fibonacci-clock/). Do check out my other articles.
 
 ###Screenshots:iphone::
 
